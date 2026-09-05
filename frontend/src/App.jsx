@@ -5,6 +5,8 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { ProductsListPage } from './pages/ProductsListPage';
+import { ProductFormPage } from './pages/ProductFormPage';
 
 export default function App() {
   return (
@@ -21,6 +23,9 @@ export default function App() {
             }
           >
             <Route path="/" element={<DashboardPage />} />
+            <Route path="/productos" element={<ProductsListPage />} />
+            <Route path="/productos/nuevo" element={<ProductFormPage />} />
+            <Route path="/productos/editar/:id" element={<ProductFormPage />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />
