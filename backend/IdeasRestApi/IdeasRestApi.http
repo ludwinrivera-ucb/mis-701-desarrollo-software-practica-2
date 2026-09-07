@@ -1,0 +1,70 @@
+@baseUrl = http://localhost:5233
+
+### 1. Iniciar sesión (Login Admin)
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@email.com",
+  "password": "Admin123!"
+}
+
+### Guardar Token de la respuesta
+@authToken = {{login.response.body.token}}
+
+### 2. Obtener Perfil del Usuario Autenticado
+GET {{baseUrl}}/api/auth/profile
+Authorization: Bearer {{authToken}}
+
+### 3. Listar Productos
+GET {{baseUrl}}/api/products
+
+### 4. Crear un Producto (Requiere Auth)
+# @name createProduct
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Cuaderno espiral 100 hojas Lider",
+  "category": "books",
+  "categoryLabel": "Cuadernos y Papelería",
+  "brand": "Líder",
+  "sku": "CUA-101",
+  "price": 42.00,
+  "stock": 25,
+  "minStock": 5,
+  "description": "Cuaderno tamaño carta cuadriculado"
+}
+
+### 5. Obtener Producto por ID
+@productId = {{createProduct.response.body.id}}
+GET {{baseUrl}}/api/products/{{productId}}
+
+### 6. Registrar una Venta (Descuenta stock automáticamente)
+# @name createSale
+POST {{baseUrl}}/api/sales
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "productId": {{productId}},
+  "quantity": 2,
+  "unitPrice": 42.00,
+  "status": "ok",
+  "statusLabel": "Pagado",
+  "customer": "Juan Pérez",
+  "paymentMethod": "efectivo",
+  "notes": "Venta mostrador"
+}
+
+### 7. Listar Ventas (con datos del producto relacionado)
+GET {{baseUrl}}/api/sales
+
+### 8. Verificar que el Stock del Producto bajó a 23
+GET {{baseUrl}}/api/products/{{productId}}
+
+### 9. Obtener Métricas del Dashboard
+GET {{baseUrl}}/api/dashboard/metrics
+Authorization: Bearer {{authToken}}

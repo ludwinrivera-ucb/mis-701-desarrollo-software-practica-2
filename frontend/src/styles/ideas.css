@@ -1,0 +1,239 @@
+:root {
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #163cad;
+  --color-primary-light: #eef4ff;
+  --color-primary-hover: #e0f2fe;
+  --color-bg: #dbdee3;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9fbff;
+  --color-surface-table: #f4f6fb;
+  --color-border: #dfe7f5;
+  --color-border-input: #b4cdf9;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-success: #10b981;
+  --color-success-bg: #dbeafe;
+  --color-success-text: #0284c7;
+  --color-warning: #d97706;
+  --color-warning-bg: #fef3c7;
+  --color-warning-text: #d97706;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #dc2626;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-pill: 20px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Top Bar */
+.top-bar {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.banner-logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.brand-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Navigation bar */
+.nav-ideas {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 32px;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-ideas .nav-link-ideas {
+  padding: 14px 20px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-ideas .nav-link-ideas:hover {
+  color: var(--color-primary);
+}
+
+.nav-ideas .nav-link-ideas.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Main Layout container */
+main.main-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer.footer-ideas {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 20px 32px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Cards & Metric Cards */
+.card-metric {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.card-metric .label {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-metric .value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.card-metric .trend {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Status Badges */
+.badge-status {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-status.ok {
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.badge-status.warn {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.badge-status.danger {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+/* Tables styling */
+.table-panel {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.table-ideas {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-ideas th {
+  background-color: var(--color-surface-table);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table-ideas td {
+  padding: 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.table-ideas tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Login Split Page */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--color-bg);
+}
+
+.login-banner {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.login-form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
